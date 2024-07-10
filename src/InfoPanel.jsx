@@ -6,7 +6,10 @@ const InfoPanel = ({ chats, currentChatId, isCollapsed, setIsCollapsed }) => {
 
     return (
         <div id="InfoPanel" className={isCollapsed ? 'collapsed' : ''}>
-            <button className="toggle-button icon-button transparent" onClick={() => setIsCollapsed(!isCollapsed)}>
+            <button
+                className="toggle-button icon-button transparent"
+                onClick={() => setIsCollapsed(!isCollapsed)}
+                >
                 <img src={closeIcon} />
             </button>
             <CharacterProfile character={currentChat.user} />
