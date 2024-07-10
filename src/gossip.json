@@ -1,0 +1,56 @@
+[
+    {
+        "gossip": "Overheard The Sales Culprit on a sales call quoting a \"startup fee\" that doesn't exist.",
+        "departments": [
+            "sales"
+        ]
+    },
+    {
+        "gossip": "Was scolded by The Finance Culprit when they tried to take some of her workload (including paperwork from The Sales Culprit).",
+        "departments": [
+            "finance"
+        ]
+    },
+    {
+        "gossip": "Noticed The Sales Culprit drive a fancy new car to the office.",
+        "departments": [
+            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
+        ]
+    },
+    {
+        "gossip": "The Sales Culprit complained about their financial situation just a couple months ago.",
+        "departments": [
+            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
+        ]
+    },
+    {
+        "gossip": "Had a flirty fling with The Finance Culprit but has noticed they're spending a lot more time with The Engineering Culprit lately.",
+        "departments": [
+            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
+        ]
+    },
+    {
+        "gossip": "Noticed that The Finance Culprit has started quickly minimizing windows whenever someone walks by but has never seen what was on the windows.",
+        "departments": [
+            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
+        ]
+    },
+    {
+        "gossip": "Sees The Engineering Culprit's Facebook posts about their kid in the hospital a lot, but noticed a decline recently",
+        "departments": [
+            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
+        ]
+    },
+    {
+        "gossip": "Noticed that The Engineering Culprit has become a lot more reserved and cranky lately",
+        "departments": [
+            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
+        ]
+    },
+    {
+        "gossip": "Overheard The Engineering Culprit having an argument with their spouse on the phone, The Finance Culprit's name came up.",
+        "departments": [
+            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
+        ]
+    }
+]

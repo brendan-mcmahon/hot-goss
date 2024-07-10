@@ -1,0 +1,40 @@
+@import './Colors.scss';
+
+#Character-Profile {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(auto, 180px) auto;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .progress-bar-container {
+        height: 2rem;
+        width: 100%;
+        background-color: $accent-color-1;
+        border-radius: 2rem;
+        margin: 10px 0;
+
+        .progress-bar-filler {
+            height: 100%;
+            border-radius: inherit;
+            text-align: right;
+            transition: width 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .progress-bar-label {
+                padding: 5px;
+                color: white;
+                font-weight: bold;
+            }
+        }
+    }
+}

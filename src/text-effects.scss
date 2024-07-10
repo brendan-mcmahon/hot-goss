@@ -1,0 +1,41 @@
+@import "./Colors.scss";
+
+.title-wrapper {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    transform: skew(0, -10deg);
+    margin-top: 2rem;
+}
+
+.sweet-title {
+    order: 2;
+    color: $accent-color-1;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: 3rem;
+    line-height: 0.75em;
+    text-align: center;
+
+    span {
+        display: block;
+        position: relative;
+
+        &:before {
+            content: attr(data-text);
+            position: absolute;
+            text-shadow: 2px 2px 1px $color-1, -1px -1px 1px $color-2,
+                -2px 2px 1px $color-1, 1px -1px 1px $color-3;
+            z-index: 1;
+        }
+
+        &:nth-child(1) {
+            padding-right: 4.5rem;
+        }
+
+        &:nth-child(2) {
+            padding-left: 2.25rem;
+        }
+    }
+}

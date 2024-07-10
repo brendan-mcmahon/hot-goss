@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 96 96" x="0px" y="0px">
+
+    <!-- <rect x="0" y="0" width="96" height="96" fill="none" stroke="red"/> -->
+
+    <path
+        d="M29.76,81.24a6,6,0,0,0,8.48,0l29-29a6,6,0,0,0,0-8.48l-29-29a6,6,0,0,0-8.48,8.48L54.51,48,29.76,72.76A6,6,0,0,0,29.76,81.24Z" />
+</svg>

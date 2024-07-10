@@ -1,0 +1,56 @@
+@import "Colors.scss";
+
+#Messages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow-y: auto;
+
+    .message {
+        padding: 10px;
+        border-radius: 5px;
+        max-width: 100%;
+        align-self: flex-start;
+
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "icon sender"
+            "icon message-text";
+        align-items: start;
+        gap: 5px;
+        justify-content: flex-start;
+
+        .icon {
+            grid-area: icon;
+            width: calc(1.8em + 10px);
+            height: calc(1.8em + 10px);
+            background-color: $accent-color-1;
+            color: $primary-background-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sender {
+            grid-area: sender;
+            font-size: 0.8em;
+            color: $secondary-text-color;
+            margin-left: .5em;
+        }
+
+        .message-text {
+            grid-area: message-text;
+            margin-left: .5em;
+            white-space: pre-wrap;
+        }
+
+        &.user {
+            .icon {
+                background-color: $accent-color-2
+            }
+        }
+    }
+}
