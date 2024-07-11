@@ -28,14 +28,6 @@ def generate_character(character_id, color, department, job):
     defining_features = load_file('defining_features.json')
     builds = ['Slim', 'Athletic', 'Average', 'Muscular', 'Stocky', 'Curvy']
     ages = range(22, 66)
-    hair_styles = [
-        'Short and neat', 'Long and wavy', 'Curly', 'Bald', 'Pixie cut', 
-        'Ponytail', 'Buzz cut', 'Braided', 'Shaved sides', 'Afro', 'Unkempt'
-    ]
-    clothing_styles = [
-        'Business formal', 'Business casual', 'Casual', 'Trendy', 'Bohemian', 
-        'Vintage', 'Preppy', 'Sporty', 'Goth', 'Hipster'
-    ]
     cities = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio', 'San Diego', 'Dallas', 'San Jose']
     
     personality_traits = [
@@ -52,26 +44,15 @@ def generate_character(character_id, color, department, job):
         'Id': character_id,
         'Name': generate_name(gender),
         'Gender': gender,
-        # 'Ethnic Background': random.choice(load_file('ethnic_backgrounds.json')),
         'Build': random.choice(builds),
         'Age': random.choice(ages),
-        'Hair Style': random.choice(hair_styles),
-        'Clothing': random.choice(clothing_styles),
-        'Defining Features': defining_features_list,
         'Trust': random.randint(1, 100),
         'Rapport': random.randint(1, 100),
         'Friendliness': random.randint(1, 100),
         'Location': random.choice(cities),
         'Personality Traits': random.sample(personality_traits, k=2),
-        # 'Quirk': random.choice(load_file('quirks.json')),
-        # 'Favorite Book': random.sample(load_file('books.json'), k=2),
-        # 'Favorite Food': random.choice(load_file('food.json')),
-        # 'Hobbies': random.choice(load_file('hobbies.json')),
         'Department': department,
         'Job': job,
-        # 'Favorite Movie': random.sample(load_file('movies.json'), k=3),
-        # 'Favorite Music': random.sample(load_file('music.json'), k=3),
-        # 'Favorite TV Show': random.sample(load_file('tv.json'), k=2),
         'Color': color,
         'Gossip': []
     }

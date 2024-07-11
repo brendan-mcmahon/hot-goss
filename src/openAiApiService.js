@@ -89,7 +89,7 @@ export const getTrustDelta = async (chat) => {
     "The rating is out of 100." +
     "Respond with a short reasoning and end with a + or - and a number." +
     "For example, respond with something like: 'This seems genuine and kind. +5' or 'The recipient probably doesn't like that tone. -3'." +
-    "Try not to go overboard with the rating. A +5 or -5 is a big change in trust. +1 or -1 is a small change." +
+    "Try not to go overboard with the rating. A +10 or -10 is a big change in trust. +3 or -3 is a small change." +
     "It's very important that your message ends with a numerical rating. I'm going to parse your message, so I need to be able to extract a `+` or `-` and a number.";
 
   let chatHistoryConcat = chat.messages.slice(-5).map(msg => ` ${msg.sender}: ${msg.text}`).join('\n');
