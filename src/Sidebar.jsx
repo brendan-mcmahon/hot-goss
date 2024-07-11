@@ -6,11 +6,7 @@ import "./Sidebar.scss";
 const Sidebar = ({ chats, setCurrentChatId, currentChatId, isCollapsed, setIsCollapsed, isMobile }) => {
     const users = chats.map(chat => chat.user);
 
-    console.log('isCollapsed', isCollapsed);
-
-
     const toggleSidebar = () => {
-        console.log('toggling sidebar', isCollapsed);
         setIsCollapsed(!isCollapsed);
     };
 
