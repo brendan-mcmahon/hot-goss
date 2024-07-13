@@ -21,14 +21,14 @@ const CharacterProfile = ({ character }) => {
                 <p><strong>Department:</strong> {character.Department} </p>
                 <p><strong>Trust:</strong></p>
                 <ProgressBar percentage={character.Trust} />
-                <p><strong>Rapport:</strong></p>
+                {/* <p><strong>Rapport:</strong></p>
                 <ProgressBar percentage={character.Rapport} />
                 <p><strong>Friendliness:</strong></p>
-                <ProgressBar percentage={character.Friendliness} />
-                <p>Gossip</p>
+                <ProgressBar percentage={character.Friendliness} /> */}
+                {/* <p>Gossip</p>
                 <ul style={{overflowY: "auto", maxHeight: "250px"}}>
                     {character.Gossip?.map((gossip, index) => <li key={index}>{gossip}</li>)}
-                </ul>
+                </ul> */}
             </div>
         </div>
     );
