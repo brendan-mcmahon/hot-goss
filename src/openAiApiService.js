@@ -14,7 +14,6 @@ export const createOpenAiService = (apiKey) => {
 
 const createCharacterContext = (characters, character) => {
   const description = Object.entries(character)
-    .filter(([key]) => key !== 'Id' && key !== 'Color')
     .map(([key, value]) => {
       switch (key) {
         case 'Trust':
@@ -32,7 +31,6 @@ const createCharacterContext = (characters, character) => {
           return `${key}: ${value}`;
       }
     }).join(",\n ");
-
     const coworkerSummary = characters.map(c => `${c.Name}: ${c.Job}`).join('\n');
 
   return `We are role-playing. We work together and are chatting on Slack.
@@ -98,7 +96,7 @@ export const sendMessage = async (chatId, chats, playerName) => {
       content: msg.text
     }));
 
-    const characterContext = createCharacterContext(chats.map(c => c.users), chat.user);
+    const characterContext = createCharacterContext(chats.map(c => c.user), chat.user);
 
     const response = await openaiService.post('/chat/completions', {
       model,
