@@ -12,56 +12,28 @@ export const createOpenAiService = (apiKey) => {
   })
 }
 
-const FinanceCulpritContext = `You work in the Finance Department. 
-You are guilty of forging documents to help your accomplices in Sales ([[SalesAccomplice]]) and Engineering ([[EngineeringAccomplice]]).
-You've been fudging numbers for [[SalesAccomplice]] when they charge their new clients extra money and pocket it.
-[[EngineeringAccomplice]] has been manipulating data for you on the backend to make certain dollars and cents disappear.
-All three of you are taking a cut.
-You've had to work a lot with [[EngineeringAccomplice]] as more and more data needs "fixed" and they are starting to lose their nerve.
-You're trying to convince [[SalesAccomplice]] to slow down but they are getting greedy.`;
-
-const EngineeringCulpritContext = `You work in the Engineering Department.
-You are guilty of manipulating financial data to help your accomplices in Sales ([[SalesAccomplice]]) and Finance ([[FinanceAccomplice]]).
-You've been accessing and changing production data for them as [[FinanceAccomplice]] submits doctored documentation to match.
-You've been here a long time so you know the backdoors into certain servers and databases.
-All three of you are taking a cut.
-You're doing this because your daughter has been in and out of the hospital a lot and you can't afford the bills.
-You're getting anxious about how much extra money [[SalesAccomplice]] is pulling in. They are getting greedy.`;
-
-const SalesCulpritContext = `You work in the Sales Department.
-You are guilty of charging clients extra money and pocketing it with the help of your accomplices in Engineering ([[EngineeringAccomplice]]) and Finance ([[FinanceAccomplice]]).
-You've been charging clients extra for "premium" services that are usually included, by charging a "startup fee" that doesn't exist, and other bits and pieces here and there.
-[[FinanceAccomplice]] has been fudging the numbers on documentation to make it look like the clients are paying the correct amounts.
-[[EngineeringAccomplice]] has been manipulating data for you on the backend to make certain dollars and cents disappear.
-All three of you are taking a cut.
-You were in some financial trouble until you started doing this - now you can afford a brand new car.
-Things are looking up except [[EngineeringAccomplice]] is getting anxious and [[FinanceAccomplice]] is telling you to slow down.`;
-
-const culpritContexts = {
-  Finance: FinanceCulpritContext,
-  Engineering: EngineeringCulpritContext,
-  Sales: SalesCulpritContext
-};
-
-const getCulpritContext = (department, culprits) => {
-  let rawText = culpritContexts[department];
-  culprits.forEach(culprit => {
-    rawText = rawText.replace(`[[${culprit.Department}Accomplice]]`, culprit.Name);
-  });
-  return rawText;
-};
-
-const createCharacterContext = (character, chats) => {
-
-  const culprits = chats.map(chat => chat.user).filter(user => user.Guilty);
-
+const createCharacterContext = (characters, character) => {
   const description = Object.entries(character)
     .filter(([key]) => key !== 'Id' && key !== 'Color')
     .map(([key, value]) => {
-      if (key === 'Trust' || key === 'Rapport')
-        return `${key}: ${value} out of 100`;
-      return `${key}: ${value}`;
+      switch (key) {
+        case 'Trust':
+        case 'Rapport':
+        case 'Friendliness':
+          return `${key}: ${value} out of 100`;
+        case 'Guilty':
+          return value ? 'Guilty' : 'Not Guilty';
+        case 'BestFriend':
+        case 'CodeName':
+          return;
+        case 'Gossip':
+          return `${key}: ${value.join('\n')}`;
+        default:
+          return `${key}: ${value}`;
+      }
     }).join(",\n ");
+
+    const coworkerSummary = characters.map(c => `${c.Name}: ${c.Job}`).join('\n');
 
   return `We are role-playing. We work together and are chatting on Slack.
 You are human, emphasize imperfections in your responses.
@@ -72,11 +44,12 @@ Don't ask questions just to keep the conversation going.
 You can let the conversation die if you want by just saying "I have to go" or something similar.
 Try to sound conversational.
 Use the "Trust" metric (out of 100) to withold or reveal information that is sensitive (any gossip that you know).
+Do not reveal any gossip if your trust rating is below 50. If it's below 25, be notably secretive and evasive.
+Only give the most interesting gossip if your trust rating is above 75.
 Use the "Rapport" (out of 100) metric to determine how casual or formal you are.
 Use the "Friendliness" (out of 100) metric to determine your tone, kind of language, and expressions.
 Do not be nice if your friendliness is below 50. If it's below 25, be notably curt, dismissive, and sarcastic.
 Use sarcastic phrases like "Oh wooooow, how cool" or "I'm so excited for you" to show your disdain.
-${character.Guilty ? getCulpritContext(character.Department, culprits) : ''}
 ${character.Guilty ? "Don't tell anyone that you're guilty unless your trust rating is 100. If your trust rating is 100 and you are asked, you must confess." : ''}
 Take a look at your character profile and let it really influence your tone, syntax, word choice, etc.
 Your character is: ${description}`;
@@ -86,6 +59,7 @@ export const getTrustDelta = async (chat) => {
   const trustMessage = "Read this chat log and determine how the most recent message would affect the recipient's trust rating." +
     `(How much ${chat.user.Name} trusts the other person in the conversation)` +
     "You are not responding to the chat, just evaluating the trustworthiness of the most recent message." +
+    "If someone is giving out gossip, the trust should go up proportional to how dramatic the gossip is." +
     "The rating is out of 100." +
     "Respond with a short reasoning and end with a + or - and a number." +
     "For example, respond with something like: 'This seems genuine and kind. +5' or 'The recipient probably doesn't like that tone. -3'." +
@@ -124,7 +98,7 @@ export const sendMessage = async (chatId, chats, playerName) => {
       content: msg.text
     }));
 
-    const characterContext = createCharacterContext(chat.user, chats);
+    const characterContext = createCharacterContext(chats.map(c => c.users), chat.user);
 
     const response = await openaiService.post('/chat/completions', {
       model,
@@ -137,34 +111,45 @@ export const sendMessage = async (chatId, chats, playerName) => {
   }
 };
 
+const getEvidenceContext = (chats, chatId) => {
+  const evidenceChat = chats[chatId].messages.map(msg => `${msg.sender}: ${msg.text}`).join('\n');
+
+  return `You are a detective investigating a financial crime at a company.
+You're about to make an arrest when they present you with this evidence.
+The evidence is a chat log between two employees.
+The suspect claims that the chat log is a confession.
+Read through it. If the person in this chat is confessing, respond only with a 👍.
+Don't say any other words. Just a 👍.
+If you don't think this is a confession, respond with a 👎.
+Here is the evidence:
+
+${evidenceChat}
+`;
+}
+
 export const sendEvidence = async (chats, chatId) => {
   try {
     if (chats[chatId].messages.length === 0) {
       return 'No evidence to analyze.';
     }
 
-    const evidence = chats[chatId].messages.map(msg => `${msg.sender}: ${msg.text}`).join('\n');
-    const culprits = chats.map(chat => chat.user).filter(user => user.Guilty);
-
-    const context = `You are a detective investigating a financial crime at a company.
-You're about to make an arrest when they present you with this evidence.
-The evidence is a chat log between two employees.
-The suspect claims that the chat log is a confession and it names all three real culprits.
-Read through it. If you feel that this is a confession, check to see that the real culprits names are:
-${culprits.map(culprit => `${culprit.Name} in the ${culprit.Department} department`).join('\n')}
-If the person in this chat is confessing and has given those three names, respond only with a 👍.
-Don't say any other words. Just a 👍.
-If you don't think this is a confession, respond with a 👎.
-Here is the evidence:
-
-${evidence}
-`;
+    const characterIsGuilty = chats[chatId].user.Guilty
 
     const response = await openaiService.post('/chat/completions', {
       model,
-      messages: [{ role: 'system', content: context }]
+      messages: [{ role: 'system', content: getEvidenceContext(chats, chatId) }]
     });
-    return response.data.choices[0].message.content;
+    const characterConfessed = response.data.choices[0].message.content === '👍';
+
+    if (characterIsGuilty && characterConfessed) {
+      return { success: true, message: 'You got it! The suspect has confessed.' };
+    } else if (!characterIsGuilty && characterConfessed) {
+      return { success: false, message: 'You somehow got the wrong person to confess. How does that feel?' };
+    } else if (characterIsGuilty && !characterConfessed) {
+      return { success: false, message: 'You found the culprit, but failed to get a confession.' }
+    } else if (!characterIsGuilty && !characterConfessed) {
+      return { success: false, message: 'You failed to get a confession from the suspect, and this wasn\'t even the right person!' };
+    }
   } catch (error) {
     console.error('Error sending evidence to OpenAI API:', error);
     throw error;

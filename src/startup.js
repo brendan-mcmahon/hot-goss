@@ -1,72 +1,94 @@
 import initialCharacters from "./character_builder/characters.json";
 import gossip from "./gossip.json";
-import bestFriendChat from "./bestFriendChat.json"
+import bestFriendChat from "./bestFriendChat.json";
 
-const replaceName = (gossipItems, chats) => {
-    const culprits = chats.map(chat => chat.user).filter(user => user.Guilty);
-    const financeCulprit = culprits.find(culprit => culprit.Department === 'Finance');
-    const engineeringCulprit = culprits.find(culprit => culprit.Department === 'Engineering');
-    const salesCulprit = culprits.find(culprit => culprit.Department === 'Sales');
+const createNameMap = (characters) => {
+    return {
+        'A': characters.find(c => c.CodeName === 'A').Name,
+        'B': characters.find(c => c.CodeName === 'B').Name,
+        'C': characters.find(c => c.CodeName === 'C').Name,
+        'D': characters.find(c => c.CodeName === 'D').Name,
+        'E': characters.find(c => c.CodeName === 'E').Name,
+        'X': characters.find(c => c.Guilty).Name
+    };
+};
 
-    return gossipItems.map(gossipItem => ({
-        ...gossipItem,
-        gossip: gossipItem.gossip
-            .replace(/The Finance Culprit/g, financeCulprit.Name)
-            .replace(/The Engineering Culprit/g, engineeringCulprit.Name)
-            .replace(/The Sales Culprit/g, salesCulprit.Name)
-    }));
+const replaceNamesInGossip = (gossipItems, nameMap) => {
+    return gossipItems?.map(gossipItem =>
+        gossipItem
+            .replace(/{A}/g, nameMap['A'])
+            .replace(/{B}/g, nameMap['B'])
+            .replace(/{C}/g, nameMap['C'])
+            .replace(/{D}/g, nameMap['D'])
+            .replace(/{E}/g, nameMap['E'])
+            .replace(/{X}/g, nameMap['X'])
+    );
 };
 
 const distributeGossip = (chats) => {
-    const newGossip = replaceName([...gossip], chats);
-
-    newGossip.forEach(gossipItem => {
-        const applicableChats = chats.filter(chat =>
-            gossipItem.departments.includes(chat.user.Department.toLowerCase())
-            && !chat.user.Guilty
-            && !chat.user.Gossip.length
-        );
-
-        if (applicableChats.length > 0) {
-            const randomChat = applicableChats[Math.floor(Math.random() * applicableChats.length)];
-            randomChat.user.Gossip.push(gossipItem.gossip);
-        }
+    const nameMap = createNameMap(chats.map(c => c.user));
+    chats.forEach(chat => {
+        chat.user.Gossip = replaceNamesInGossip(gossip[chat.user.CodeName], nameMap);
     });
 };
 
-const setCulprits = () => {
-    const characters = initialCharacters.map(character => ({ ...character }));
-    const departments = ['Engineering', 'Finance', 'Sales'];
+const assignCulprit = (characters) => {
+    const charactersCopy = characters.map(character => ({ ...character }));
+    const salesTeam = charactersCopy.filter(c => c.Department === 'Sales');
 
-    departments.forEach(department => {
-        const filtered = characters.filter(c => c.Department === department);
-        filtered[Math.floor(Math.random() * filtered.length)].Guilty = true;
+    salesTeam[Math.floor(Math.random() * salesTeam.length)].Guilty = true;
+    return charactersCopy;
+};
+
+const assignCodeNames = (characters) => {
+    const codeNames = ['A', 'B', 'C', 'D', 'E'];
+    const shuffledCodeNames = codeNames.sort(() => Math.random() - 0.5);
+
+    const guiltyCharacter = characters.find(c => c.Guilty);
+    guiltyCharacter.CodeName = 'X';
+
+    characters.filter(c => !c.Guilty && !c.BestFriend).forEach((character, index) => {
+        character.CodeName = shuffledCodeNames[index];
     });
 
     return characters;
 };
 
-
-export default function initialize() {
-    let characters = setCulprits();
-
-    const initialChats = characters.map(character => ({
+const initializeChats = (characters) => {
+    return characters.map(character => ({
         user: character,
         messages: []
     }));
+};
 
-    const bestFriend = characters.filter(c => !c.Guilty)[Math.floor(Math.random() * 17)];
-    initialChats[bestFriend.Id].user.BestFriend = true;
-    initialChats[bestFriend.Id].user.Trust = 100;
-    initialChats[bestFriend.Id].messages = [...bestFriendChat].map((message, index) => (
-        {
-            id: index,
-            text: message,
-            sender: bestFriend.Name
-        })
-    );
+const assignBestFriend = (characters) => {
+    const nonGuiltyCharacters = characters.filter(c => !c.Guilty);
+    const bestFriend = nonGuiltyCharacters[Math.floor(Math.random() * nonGuiltyCharacters.length)];
+    bestFriend.BestFriend = true;
+
+    return characters.map(character => ({ ...character }));
+};
+
+const setBestFriendChat = (chats) => {
+    const bff = chats.find(chat => chat.user.BestFriend);
+    bff.user.BestFriend = true;
+    bff.user.Trust = 100;
+    bff.messages = bestFriendChat.map((message, index) => ({
+        id: index,
+        text: message,
+        sender: bff.Name
+    }));
+}
+
+export default function initialize() {
+    let characters = assignCulprit(initialCharacters);
+    characters = assignBestFriend(characters);
+    characters = assignCodeNames(characters);
+
+    const initialChats = initializeChats(characters);
+    setBestFriendChat(initialChats);
 
     distributeGossip(initialChats);
 
     return initialChats;
-};
+}

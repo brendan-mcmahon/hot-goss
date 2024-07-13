@@ -1,11 +1,8 @@
 @import "./Colors.scss";
 
 .title-wrapper {
-    display: grid;
-    align-items: center;
-    justify-content: center;
     transform: skew(0, -10deg);
-    margin-top: 2rem;
+    margin-top: auto;
 }
 
 .sweet-title {

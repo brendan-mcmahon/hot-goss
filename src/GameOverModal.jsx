@@ -1,6 +1,6 @@
 import Modal from './Modal';
 
-const VictoryModal = ({ isOpen, setIsOpen, openWelcomeModal }) => {
+const GameOverModal = ({ isOpen, setIsOpen, openWelcomeModal, message }) => {
 
     const playAgain = () => {
         openWelcomeModal();
@@ -16,7 +16,7 @@ const VictoryModal = ({ isOpen, setIsOpen, openWelcomeModal }) => {
                         <span data-text="Goss">Goss</span>
                     </h1>
                 </div>
-                <h2>You won! Congrats, you're not getting arrested!!</h2>
+                <h2>{message}</h2>
                 <button onClick={playAgain}>Play Again</button>
 
             </div>
@@ -24,4 +24,4 @@ const VictoryModal = ({ isOpen, setIsOpen, openWelcomeModal }) => {
     );
 };
 
-export default VictoryModal;
+export default GameOverModal;

@@ -10,7 +10,6 @@ const MainContent = ({ playerName, chats, currentChatId, addMessage, isMobile, s
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    console.log('did this work?', currentChatId);
     setCurrentChat(chats[currentChatId])
   }, [chats, currentChatId])
 

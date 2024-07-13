@@ -8,22 +8,6 @@
         "job": "Financial Analyst"
     },
     {
-        "department": "Finance",
-        "job": "Controller"
-    },
-    {
-        "department": "Marketing",
-        "job": "Marketing Specialist"
-    },
-    {
-        "department": "Marketing",
-        "job": "Marketing Manager"
-    },
-    {
-        "department": "Marketing",
-        "job": "Graphic Designer"
-    },
-    {
         "department": "Engineering",
         "job": "Software Engineer"
     },
@@ -32,36 +16,12 @@
         "job": "QA Engineer"
     },
     {
-        "department": "Engineering",
-        "job": "Data Analyst"
-    },
-    {
-        "department": "Sales",
-        "job": "Sales Manager"
-    },
-    {
         "department": "Sales",
         "job": "Sales Representative"
     },
     {
         "department": "Sales",
         "job": "Sales Representative"
-    },
-    {
-        "department": "HR",
-        "job": "HR Manager"
-    },
-    {
-        "department": "HR",
-        "job": "HR Specialist"
-    },
-    {
-        "department": "Customer Support",
-        "job": "Customer Service Manager"
-    },
-    {
-        "department": "Customer Support",
-        "job": "Customer Service Representative"
     },
     {
         "department": "Customer Support",

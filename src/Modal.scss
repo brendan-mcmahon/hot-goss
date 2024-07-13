@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 3;
 }
 
 .modal-content {
@@ -22,8 +22,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 500px;
   max-width: 90%;
-  max-height: 50dvh;
-  overflow-y:scroll;
 }
 
 .close-button {
@@ -34,4 +32,11 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    max-height: 50dvh;
+    overflow-y:scroll;
+  }
 }

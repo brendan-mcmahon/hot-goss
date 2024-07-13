@@ -1,56 +1,52 @@
-[
-    {
-        "gossip": "Overheard The Sales Culprit on a sales call quoting a \"startup fee\" that doesn't exist.",
-        "departments": [
-            "sales"
-        ]
-    },
-    {
-        "gossip": "Was scolded by The Finance Culprit when they tried to take some of her workload (including paperwork from The Sales Culprit).",
-        "departments": [
-            "finance"
-        ]
-    },
-    {
-        "gossip": "Noticed The Sales Culprit drive a fancy new car to the office.",
-        "departments": [
-            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
-        ]
-    },
-    {
-        "gossip": "The Sales Culprit complained about their financial situation just a couple months ago.",
-        "departments": [
-            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
-        ]
-    },
-    {
-        "gossip": "Had a flirty fling with The Finance Culprit but has noticed they're spending a lot more time with The Engineering Culprit lately.",
-        "departments": [
-            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
-        ]
-    },
-    {
-        "gossip": "Noticed that The Finance Culprit has started quickly minimizing windows whenever someone walks by but has never seen what was on the windows.",
-        "departments": [
-            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
-        ]
-    },
-    {
-        "gossip": "Sees The Engineering Culprit's Facebook posts about their kid in the hospital a lot, but noticed a decline recently",
-        "departments": [
-            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
-        ]
-    },
-    {
-        "gossip": "Noticed that The Engineering Culprit has become a lot more reserved and cranky lately",
-        "departments": [
-            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
-        ]
-    },
-    {
-        "gossip": "Overheard The Engineering Culprit having an argument with their spouse on the phone, The Finance Culprit's name came up.",
-        "departments": [
-            "sales", "finance", "support", "engineering", "hr", "marketing", "product"
-        ]
-    }
-]
+{
+  "A": [
+    "You told {B} and {C} that you overheard {X} on a sales call quoting a \"startup fee\" that doesn't exist.",
+    "You talked to {D} and {E} about the time you saw the CEO of the company accidentally screen share a spreadsheet with some names on it (including {X}'s) and some numbers that they then quickly minimized.",
+    "You talked with {B} and {D} about how you've all noticed {X} has been taking a lot of personal calls lately. ",
+    "You heard from {E} that {X} has started quickly minimizing windows whenever someone walks by but have never seen what was on the windows.",
+    "You heard from {B} that {B} was scolded by {X} when they tried to handle some of their paperworkload as a favor.",
+    "You heard from {D} that {D} saw the CEO of the company accidentally screen share a chat window with an unfamiliar name about an investigation of some kind."
+  ],
+  "B": [
+    "You told {A} about how you were scolded by {X} when they tried to handle some of their paperworkload as a favor.",
+    "You talked with {A} and {D} about how you've all noticed {X} has been taking a lot of personal calls lately. ",
+    "You heard from {A} that {X} was on a sales call quoting a \"startup fee\" that doesn't exist.",
+    "You heard from {C} that {X} started driving a fancy new car to the office.",
+    "You heard from {C} that {X} has been coming in late a lot lately.",
+    "You heard from {D} that there has been a lot of flirting between {X} and {E}."
+  ],
+  "C": [
+    "You told {B} that you noticed {X} drive a fancy new car to the office.",
+    "You told {B} that you've noticed {X} has been coming in late a lot lately",
+    "You heard {X} yelling at {B}",
+    "You heard from {A} that {X} was on a sales call quoting a \"startup fee\" that doesn't exist.",
+    "You heard from {D} that {X} complained about their financial situation just a couple months ago."
+  ],
+  "D": [
+    "You mentioned to {C} and {E} that a couple months ago, {X} complained about their financial situation to you.",
+    "You told {E} that you overheard {X} having an argument with their spouse on the phone about money.",
+    "You talked with {A} and {B} about how you've all noticed {X} has been taking a lot of personal calls lately. ",
+    "You talked with {A} about the time you saw the CEO of the company accidentally screen share a chat window with an unfamiliar name about an investigation of some kind.",
+    "You mentioned to {B} that in the past, you've noticed a lot of flirting between {X} and {E}. ",
+    "Heard from {A} that they saw the CEO of the company accidentally screen share a spreadsheet with some names on it (including {X}'s) and some numbers that they then quickly minimized."
+  ],
+  "E": [
+    "You've had a flirty fling with {X} but has noticed they've been acting more distant lately.",
+    "You told {A} that you noticed that {X} has started quickly minimizing windows whenever someone walks by but has never seen what was on the windows.",
+    "You heard from {D} that {X} complained about their financial situation just a couple months ago.",
+    "You heard from {D} that {X} was arguing with their spouse about money on the phone.",
+    "You heard from {A} the CEO of the company accidentally screen share a spreadsheet with some names on it (including {X}'s) and some numbers that they then quickly minimized"
+  ],
+  "X": [
+    "You work in the Sales Department.",
+    "You are guilty of charging clients extra money and pocketing it.",
+    "You've been charging clients extra for \"premium\" services that are usually included, by charging a \"startup fee\" that doesn't exist, and other bits and pieces here and there.",
+    "You were in some financial trouble until you started doing this - now you can afford a brand new car.",
+    "You bought a really nice new car recently.",
+    "You yelled at {B} when {B} tried to take on some of your paperwork.",
+    "You have been taking a lot of personal calls lately.",
+    "You have been coming in late a lot lately.",
+    "You had an argument with your spouse on the phone about money.",
+    "You've had a flirty fling with {E} but you're trying to distance themselves from {E} to better keep your secrets."
+  ]
+}

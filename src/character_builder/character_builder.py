@@ -25,26 +25,17 @@ def generate_name(gender):
 
 def generate_character(character_id, color, department, job):
     genders = ['Male', 'Female', 'Non-binary']
-    defining_features = load_file('defining_features.json')
-    builds = ['Slim', 'Athletic', 'Average', 'Muscular', 'Stocky', 'Curvy']
     ages = range(22, 66)
     cities = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio', 'San Diego', 'Dallas', 'San Jose']
-    
     personality_traits = [
         'Introverted', 'Extroverted', 'Optimistic', 'Pessimistic', 
         'Serious', 'Playful', 'Empathetic', 'Logical'
     ]
-    
     gender = random.choice(genders)
-    defining_features_list = random.sample(defining_features, k=random.randint(1, 3))
-    if gender == 'Female' and 'Has a beard' in defining_features_list:
-        defining_features_list.remove('Has a beard')
-
     character = {
         'Id': character_id,
         'Name': generate_name(gender),
         'Gender': gender,
-        'Build': random.choice(builds),
         'Age': random.choice(ages),
         'Trust': random.randint(1, 100),
         'Rapport': random.randint(1, 100),
@@ -54,7 +45,9 @@ def generate_character(character_id, color, department, job):
         'Department': department,
         'Job': job,
         'Color': color,
-        'Gossip': []
+        'Gossip': [],
+        'BestFriend': False,
+        'CodeName': ''
     }
 
     return character

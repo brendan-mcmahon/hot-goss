@@ -1,493 +1,142 @@
 [
     {
         "Id": 0,
-        "Name": "Andre Williams",
-        "Gender": "Male",
-        "Build": "Average",
-        "Age": 56,
-        "Hair Style": "Long and wavy",
-        "Clothing": "Business formal",
-        "Defining Features": [
-            "Has a unique hairstyle"
-        ],
-        "Trust": 82,
-        "Rapport": 52,
-        "Friendliness": 85,
-        "Location": "San Jose",
-        "Personality Traits": [
-            "Pessimistic",
-            "Empathetic"
-        ],
-        "Department": "HR",
-        "Job": "HR Manager",
-        "Color": "#6C0079",
-        "Gossip": []
-    },
-    {
-        "Id": 1,
-        "Name": "April Yazzie",
+        "Name": "Crystal Smith",
         "Gender": "Female",
-        "Build": "Average",
-        "Age": 27,
-        "Hair Style": "Unkempt",
-        "Clothing": "Bohemian",
-        "Defining Features": [
-            "Wears earrings"
-        ],
-        "Trust": 39,
-        "Rapport": 63,
-        "Friendliness": 83,
-        "Location": "Chicago",
-        "Personality Traits": [
-            "Empathetic",
-            "Extroverted"
-        ],
-        "Department": "Product",
-        "Job": "Business Analyst",
-        "Color": "#ffbd00",
-        "Gossip": []
-    },
-    {
-        "Id": 2,
-        "Name": "Brenda Qaqqaq",
-        "Gender": "Female",
-        "Build": "Curvy",
-        "Age": 59,
-        "Hair Style": "Bald",
-        "Clothing": "Business formal",
-        "Defining Features": [
-            "Has a tattoo sleeve"
-        ],
-        "Trust": 58,
-        "Rapport": 95,
-        "Friendliness": 28,
-        "Location": "Philadelphia",
-        "Personality Traits": [
-            "Introverted",
-            "Serious"
-        ],
-        "Department": "Customer Support",
-        "Job": "Customer Service Representative",
-        "Color": "#579C4C",
-        "Gossip": []
-    },
-    {
-        "Id": 3,
-        "Name": "Carl Robinson",
-        "Gender": "Non-binary",
-        "Build": "Curvy",
-        "Age": 24,
-        "Hair Style": "Shaved sides",
-        "Clothing": "Bohemian",
-        "Defining Features": [
-            "Wears braces",
-            "Wears glasses",
-            "Has piercings"
-        ],
-        "Trust": 21,
-        "Rapport": 9,
-        "Friendliness": 28,
-        "Location": "Dallas",
-        "Personality Traits": [
-            "Extroverted",
-            "Optimistic"
-        ],
-        "Department": "Engineering",
-        "Job": "Data Analyst",
-        "Color": "#ff5400",
-        "Gossip": []
-    },
-    {
-        "Id": 4,
-        "Name": "Crystal Diop",
-        "Gender": "Non-binary",
-        "Build": "Slim",
-        "Age": 26,
-        "Hair Style": "Ponytail",
-        "Clothing": "Vintage",
-        "Defining Features": [
-            "Has a deep voice"
-        ],
-        "Trust": 78,
-        "Rapport": 45,
+        "Age": 39,
+        "Trust": 40,
+        "Rapport": 96,
         "Friendliness": 24,
-        "Location": "Phoenix",
+        "Location": "Los Angeles",
         "Personality Traits": [
-            "Playful",
-            "Empathetic"
-        ],
-        "Department": "Product",
-        "Job": "Product Manager",
-        "Color": "#390099",
-        "Gossip": []
-    },
-    {
-        "Id": 5,
-        "Name": "Isaac Mungatopi",
-        "Gender": "Male",
-        "Build": "Stocky",
-        "Age": 36,
-        "Hair Style": "Curly",
-        "Clothing": "Casual",
-        "Defining Features": [
-            "Wears makeup"
-        ],
-        "Trust": 90,
-        "Rapport": 22,
-        "Friendliness": 11,
-        "Location": "San Diego",
-        "Personality Traits": [
-            "Playful",
-            "Serious"
-        ],
-        "Department": "Finance",
-        "Job": "Controller",
-        "Color": "#ffbd00",
-        "Gossip": []
-    },
-    {
-        "Id": 6,
-        "Name": "Jaden Jean-Baptiste",
-        "Gender": "Non-binary",
-        "Build": "Curvy",
-        "Age": 58,
-        "Hair Style": "Afro",
-        "Clothing": "Sporty",
-        "Defining Features": [
-            "Has long nails",
-            "Has a prosthetic limb"
-        ],
-        "Trust": 60,
-        "Rapport": 75,
-        "Friendliness": 81,
-        "Location": "Dallas",
-        "Personality Traits": [
-            "Extroverted",
-            "Empathetic"
-        ],
-        "Department": "Marketing",
-        "Job": "Marketing Specialist",
-        "Color": "#ff5400",
-        "Gossip": []
-    },
-    {
-        "Id": 7,
-        "Name": "James Yanupingu",
-        "Gender": "Male",
-        "Build": "Average",
-        "Age": 40,
-        "Hair Style": "Short and neat",
-        "Clothing": "Sporty",
-        "Defining Features": [
-            "Has long nails",
-            "Has a mustache",
-            "Wears a hat"
-        ],
-        "Trust": 88,
-        "Rapport": 19,
-        "Friendliness": 87,
-        "Location": "San Antonio",
-        "Personality Traits": [
-            "Extroverted",
-            "Empathetic"
-        ],
-        "Department": "Sales",
-        "Job": "Sales Representative",
-        "Color": "#ff5400",
-        "Gossip": []
-    },
-    {
-        "Id": 8,
-        "Name": "Jason Begay",
-        "Gender": "Male",
-        "Build": "Average",
-        "Age": 25,
-        "Hair Style": "Shaved sides",
-        "Clothing": "Business formal",
-        "Defining Features": [
-            "Has long nails",
-            "Tattoos"
-        ],
-        "Trust": 79,
-        "Rapport": 67,
-        "Friendliness": 71,
-        "Location": "Philadelphia",
-        "Personality Traits": [
-            "Serious",
-            "Introverted"
+            "Optimistic",
+            "Pessimistic"
         ],
         "Department": "Engineering",
         "Job": "QA Engineer",
-        "Color": "#ff0054",
-        "Gossip": []
+        "Color": "#ff5400",
+        "Gossip": [],
+        "BestFriend": false,
+        "CodeName": ""
     },
     {
-        "Id": 9,
-        "Name": "Joel Singh",
+        "Id": 1,
+        "Name": "David Kumar",
         "Gender": "Male",
-        "Build": "Muscular",
-        "Age": 51,
-        "Hair Style": "Ponytail",
-        "Clothing": "Trendy",
-        "Defining Features": [
-            "Has a prosthetic limb",
-            "Has freckles"
-        ],
-        "Trust": 3,
-        "Rapport": 93,
-        "Friendliness": 96,
-        "Location": "San Diego",
+        "Age": 40,
+        "Trust": 30,
+        "Rapport": 8,
+        "Friendliness": 70,
+        "Location": "Philadelphia",
         "Personality Traits": [
-            "Logical",
-            "Introverted"
+            "Introverted",
+            "Playful"
         ],
-        "Department": "Finance",
-        "Job": "Financial Analyst",
-        "Color": "#390099",
-        "Gossip": []
+        "Department": "Sales",
+        "Job": "Sales Representative",
+        "Color": "#6C0079",
+        "Gossip": [],
+        "BestFriend": false,
+        "CodeName": ""
     },
     {
-        "Id": 10,
-        "Name": "Kiona Poma",
-        "Gender": "Female",
-        "Build": "Muscular",
-        "Age": 42,
-        "Hair Style": "Shaved sides",
-        "Clothing": "Trendy",
-        "Defining Features": [
-            "Has long nails"
-        ],
-        "Trust": 58,
-        "Rapport": 47,
-        "Friendliness": 96,
-        "Location": "New York",
+        "Id": 2,
+        "Name": "Diego Yunupingu",
+        "Gender": "Non-binary",
+        "Age": 46,
+        "Trust": 26,
+        "Rapport": 25,
+        "Friendliness": 70,
+        "Location": "Dallas",
         "Personality Traits": [
-            "Logical",
+            "Introverted",
+            "Playful"
+        ],
+        "Department": "Sales",
+        "Job": "Sales Representative",
+        "Color": "#ff0054",
+        "Gossip": [],
+        "BestFriend": false,
+        "CodeName": ""
+    },
+    {
+        "Id": 3,
+        "Name": "Doris Taylor",
+        "Gender": "Female",
+        "Age": 50,
+        "Trust": 92,
+        "Rapport": 80,
+        "Friendliness": 22,
+        "Location": "Houston",
+        "Personality Traits": [
+            "Serious",
             "Extroverted"
         ],
         "Department": "Engineering",
         "Job": "Software Engineer",
-        "Color": "#579C4C",
-        "Gossip": []
+        "Color": "#ffbd00",
+        "Gossip": [],
+        "BestFriend": false,
+        "CodeName": ""
     },
     {
-        "Id": 11,
-        "Name": "Kofi Njeri",
-        "Gender": "Male",
-        "Build": "Slim",
-        "Age": 40,
-        "Hair Style": "Long and wavy",
-        "Clothing": "Business casual",
-        "Defining Features": [
-            "Wears makeup",
-            "Has a strong jawline"
+        "Id": 4,
+        "Name": "Evelyn Pierre",
+        "Gender": "Non-binary",
+        "Age": 48,
+        "Trust": 87,
+        "Rapport": 50,
+        "Friendliness": 46,
+        "Location": "Chicago",
+        "Personality Traits": [
+            "Optimistic",
+            "Logical"
         ],
-        "Trust": 81,
-        "Rapport": 33,
-        "Friendliness": 64,
-        "Location": "Los Angeles",
+        "Department": "Finance",
+        "Job": "Financial Analyst",
+        "Color": "#390099",
+        "Gossip": [],
+        "BestFriend": false,
+        "CodeName": ""
+    },
+    {
+        "Id": 5,
+        "Name": "Sarah Bouzid",
+        "Gender": "Non-binary",
+        "Age": 39,
+        "Trust": 68,
+        "Rapport": 64,
+        "Friendliness": 56,
+        "Location": "Dallas",
         "Personality Traits": [
             "Pessimistic",
-            "Empathetic"
-        ],
-        "Department": "Product",
-        "Job": "Project Manager",
-        "Color": "#ff0054",
-        "Gossip": []
-    },
-    {
-        "Id": 12,
-        "Name": "Leila Begay",
-        "Gender": "Female",
-        "Build": "Muscular",
-        "Age": 48,
-        "Hair Style": "Shaved sides",
-        "Clothing": "Goth",
-        "Defining Features": [
-            "Has piercings"
-        ],
-        "Trust": 29,
-        "Rapport": 28,
-        "Friendliness": 21,
-        "Location": "Philadelphia",
-        "Personality Traits": [
-            "Logical",
             "Serious"
-        ],
-        "Department": "Marketing",
-        "Job": "Marketing Manager",
-        "Color": "#ff0054",
-        "Gossip": []
-    },
-    {
-        "Id": 13,
-        "Name": "Nyasha Walker",
-        "Gender": "Non-binary",
-        "Build": "Average",
-        "Age": 58,
-        "Hair Style": "Short and neat",
-        "Clothing": "Goth",
-        "Defining Features": [
-            "Has a unique hairstyle",
-            "Has a mustache"
-        ],
-        "Trust": 65,
-        "Rapport": 23,
-        "Friendliness": 90,
-        "Location": "San Antonio",
-        "Personality Traits": [
-            "Pessimistic",
-            "Playful"
-        ],
-        "Department": "Sales",
-        "Job": "Sales Representative",
-        "Color": "#6C0079",
-        "Gossip": []
-    },
-    {
-        "Id": 14,
-        "Name": "Ryan Martinez",
-        "Gender": "Male",
-        "Build": "Average",
-        "Age": 48,
-        "Hair Style": "Bald",
-        "Clothing": "Bohemian",
-        "Defining Features": [
-            "Wears colorful clothing"
-        ],
-        "Trust": 23,
-        "Rapport": 31,
-        "Friendliness": 55,
-        "Location": "Houston",
-        "Personality Traits": [
-            "Introverted",
-            "Playful"
-        ],
-        "Department": "Marketing",
-        "Job": "Graphic Designer",
-        "Color": "#6C0079",
-        "Gossip": []
-    },
-    {
-        "Id": 15,
-        "Name": "Sarah Gupta",
-        "Gender": "Non-binary",
-        "Build": "Curvy",
-        "Age": 41,
-        "Hair Style": "Curly",
-        "Clothing": "Preppy",
-        "Defining Features": [
-            "Has large eyes",
-            "Wears glasses"
-        ],
-        "Trust": 44,
-        "Rapport": 37,
-        "Friendliness": 55,
-        "Location": "New York",
-        "Personality Traits": [
-            "Pessimistic",
-            "Optimistic"
-        ],
-        "Department": "HR",
-        "Job": "HR Specialist",
-        "Color": "#6C0079",
-        "Gossip": []
-    },
-    {
-        "Id": 16,
-        "Name": "Shannon Okello",
-        "Gender": "Female",
-        "Build": "Slim",
-        "Age": 35,
-        "Hair Style": "Pixie cut",
-        "Clothing": "Hipster",
-        "Defining Features": [
-            "Wears makeup"
-        ],
-        "Trust": 42,
-        "Rapport": 68,
-        "Friendliness": 5,
-        "Location": "San Jose",
-        "Personality Traits": [
-            "Playful",
-            "Pessimistic"
         ],
         "Department": "Finance",
         "Job": "Accountant",
         "Color": "#9e0059",
-        "Gossip": []
+        "Gossip": [],
+        "BestFriend": false,
+        "CodeName": ""
     },
     {
-        "Id": 17,
-        "Name": "Suka Khalil",
-        "Gender": "Female",
-        "Build": "Athletic",
-        "Age": 30,
-        "Hair Style": "Braided",
-        "Clothing": "Bohemian",
-        "Defining Features": [
-            "Wears heavy boots",
-            "Wears earrings"
-        ],
-        "Trust": 60,
-        "Rapport": 93,
-        "Friendliness": 95,
-        "Location": "Philadelphia",
+        "Id": 6,
+        "Name": "Shannon Rostas",
+        "Gender": "Non-binary",
+        "Age": 65,
+        "Trust": 40,
+        "Rapport": 7,
+        "Friendliness": 80,
+        "Location": "Phoenix",
         "Personality Traits": [
-            "Serious",
-            "Optimistic"
-        ],
-        "Department": "Sales",
-        "Job": "Sales Manager",
-        "Color": "#579C4C",
-        "Gossip": []
-    },
-    {
-        "Id": 18,
-        "Name": "Valerie Martinez",
-        "Gender": "Female",
-        "Build": "Stocky",
-        "Age": 53,
-        "Hair Style": "Long and wavy",
-        "Clothing": "Casual",
-        "Defining Features": [
-            "Wears a bandana"
-        ],
-        "Trust": 8,
-        "Rapport": 96,
-        "Friendliness": 94,
-        "Location": "San Jose",
-        "Personality Traits": [
-            "Optimistic",
-            "Serious"
+            "Playful",
+            "Extroverted"
         ],
         "Department": "Customer Support",
         "Job": "Customer Service Representative",
-        "Color": "#390099",
-        "Gossip": []
-    },
-    {
-        "Id": 19,
-        "Name": "William Rostas",
-        "Gender": "Non-binary",
-        "Build": "Curvy",
-        "Age": 32,
-        "Hair Style": "Curly",
-        "Clothing": "Sporty",
-        "Defining Features": [
-            "Has a prosthetic limb"
-        ],
-        "Trust": 29,
-        "Rapport": 53,
-        "Friendliness": 23,
-        "Location": "San Diego",
-        "Personality Traits": [
-            "Extroverted",
-            "Introverted"
-        ],
-        "Department": "Customer Support",
-        "Job": "Customer Service Manager",
         "Color": "#579C4C",
-        "Gossip": []
+        "Gossip": [],
+        "BestFriend": false,
+        "CodeName": ""
     }
 ]

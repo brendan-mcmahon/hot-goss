@@ -8,8 +8,7 @@ import initialize from './startup.js'
 import { useState, useEffect } from 'react'
 import { getTrustDelta, sendMessage } from './openAiApiService'
 import WelcomeModal from './WelcomeModal.jsx'
-import VictoryModal from './VictoryModal.jsx'
-import FailureModal from './FailureModal.jsx'
+import GameOverModal from './GameOverModal.jsx'
 
 function App() {
   const [playerName, setPlayerName] = useState('');
@@ -18,8 +17,7 @@ function App() {
   const [pendingMessage, setPendingMessage] = useState(false)
   const [trustUpdated, setTrustUpdated] = useState(false)
   const [welcomeModalOpen, setWelcomeModalOpen] = useState(true)
-  const [victoryModalOpen, setVictoryModalOpen] = useState(false)
-  const [failureModalOpen, setFailureModalOpen] = useState(false)
+  const [gameOverModalOpen, setGameOverModalOpen] = useState(false)
   const [resetClock, setResetClock] = useState(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
   const [isInfoPanelCollapsed, setIsInfoPanelCollapsed] = useState(true);
@@ -107,24 +105,20 @@ function App() {
     }
   };
 
-  // if it's mobile, then show if isSideBarCollapsed is false
-  // if it's not mobile, always show the sidebar
   const showSidebar = !isMobile || !isSidebarCollapsed;
   const showInfoPanel = !isMobile || !isInfoPanelCollapsed;
 
   return (
     <>
       <WelcomeModal isOpen={welcomeModalOpen} setIsOpen={setWelcomeModalOpen} initializeGame={initializeGame} />
-      <VictoryModal isOpen={victoryModalOpen} setIsOpen={setVictoryModalOpen} openWelcomeModal={() => setWelcomeModalOpen(true)} />
-      <FailureModal isOpen={failureModalOpen} setIsOpen={setFailureModalOpen} openWelcomeModal={() => setWelcomeModalOpen(true)} chats={chats} />
+      <GameOverModal isOpen={gameOverModalOpen} setIsOpen={setGameOverModalOpen} openWelcomeModal={() => setWelcomeModalOpen(true)} />
       <div id="App">
         {chats.length > 0 &&
           <>
             <Header
               chats={chats}
               currentChatId={currentChatId}
-              openVictoryModal={() => setVictoryModalOpen(true)}
-              openFailureModal={() => setFailureModalOpen(true)}
+              openGameOverModal={() => setGameOverModalOpen(true)}
               resetSignal={resetClock}
               handleClockReset={handleClockReset}
               setIsSidebarCollapsed={setIsSidebarCollapsed}
