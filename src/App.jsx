@@ -18,6 +18,7 @@ function App() {
   const [trustUpdated, setTrustUpdated] = useState(false)
   const [welcomeModalOpen, setWelcomeModalOpen] = useState(true)
   const [gameOverModalOpen, setGameOverModalOpen] = useState(false)
+  const [gameOverMessage, setGameOverMessage] = useState('')
   const [resetClock, setResetClock] = useState(false);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
   const [isInfoPanelCollapsed, setIsInfoPanelCollapsed] = useState(true);
@@ -107,18 +108,22 @@ function App() {
 
   const showSidebar = !isMobile || !isSidebarCollapsed;
   const showInfoPanel = !isMobile || !isInfoPanelCollapsed;
+  const gameOverModalOpener = (message) => {
+    setGameOverMessage(message);
+    setGameOverModalOpen(true);
+  }
 
   return (
     <>
       <WelcomeModal isOpen={welcomeModalOpen} setIsOpen={setWelcomeModalOpen} initializeGame={initializeGame} />
-      <GameOverModal isOpen={gameOverModalOpen} setIsOpen={setGameOverModalOpen} openWelcomeModal={() => setWelcomeModalOpen(true)} />
+      <GameOverModal isOpen={gameOverModalOpen} setIsOpen={setGameOverModalOpen} openWelcomeModal={() => setWelcomeModalOpen(true)} message={gameOverMessage} />
       <div id="App">
         {chats.length > 0 &&
           <>
             <Header
               chats={chats}
               currentChatId={currentChatId}
-              openGameOverModal={() => setGameOverModalOpen(true)}
+              openGameOverModal={gameOverModalOpener}
               resetSignal={resetClock}
               handleClockReset={handleClockReset}
               setIsSidebarCollapsed={setIsSidebarCollapsed}

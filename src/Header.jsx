@@ -19,7 +19,7 @@ const Header = ({
 
     const submitEvidence = async () => {
         const response = await sendEvidence(chats, currentChatId);
-        openGameOverModal(response);
+        openGameOverModal(response.message);
     };
 
     return (
