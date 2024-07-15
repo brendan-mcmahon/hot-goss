@@ -1,6 +1,4 @@
 # TODO:
-* Make it one culprit instead of 3
-* Give everyone a piece of knowledge so nothing is wasted
 * Make the knowledge more of a grapevine so you bounce between people
 * Generate Pictures for the characters
 * Time stamps for messages
@@ -16,4 +14,3 @@
 * Have someone initiate a conversation instead of everyone waiting for you to start.
   * Could be a time based thing. Like around the 5 minute mark, have someone you haven't chatted with message you with whatever info they have
   * Could also be based on the player mentioning character B's name to character A, then those two having a conversation, then character A reaching out to you because of that?
-  * 
