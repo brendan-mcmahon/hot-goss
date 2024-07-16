@@ -11,10 +11,10 @@ import WelcomeModal from './WelcomeModal.jsx'
 import GameOverModal from './GameOverModal.jsx'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentChatId } from './store_slices/CurrentChatSlice.js'
+import { setChats } from './store_slices/ChatsSlice.js'
 
 function App() {
   const [playerName, setPlayerName] = useState('');
-  const [chats, setChats] = useState([]);
   const [pendingMessage, setPendingMessage] = useState(false)
   const [trustUpdated, setTrustUpdated] = useState(false)
   const [welcomeModalOpen, setWelcomeModalOpen] = useState(true)
@@ -26,6 +26,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const dispatch = useDispatch();
   const currentChatId = useSelector((state) => state.currentChatId.value);
+  const chats = useSelector((state) => state.chats.value);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -46,7 +47,7 @@ function App() {
 
     setPlayerName(window.localStorage.getItem('name'));
 
-    setChats(initialChats);
+    dispatch(setChats(initialChats));
     dispatch(setCurrentChatId(initialChats.findIndex(chat => chat.user.BestFriend)));
     handleClockReset();
   }
@@ -69,7 +70,7 @@ function App() {
       return chat;
     });
 
-    setChats(newChats);
+    dispatch(setChats(newChats));
 
     setPendingMessage(sender === playerName);
   }
@@ -83,7 +84,7 @@ function App() {
         if (newChats[currentChatId].user.Trust !== 100) {
           newChats[currentChatId].user.Trust += parseInt(delta, 10);
           newChats[currentChatId].user.Trust = Math.max(0, Math.min(newChats[currentChatId].user.Trust, 100));
-          setChats(newChats);
+          dispatch(setChats(newChats));
         }
 
         setPendingMessage(false);
@@ -131,14 +132,12 @@ function App() {
               isMobile={isMobile}
             />
             <Sidebar
-              chats={chats}
               isCollapsed={!showSidebar}
               setIsCollapsed={setIsSidebarCollapsed}
               currentChatId={currentChatId}
               isMobile={isMobile}
             />
             <MainContent
-              chats={chats}
               currentChatId={currentChatId}
               addMessage={addMessage}
               playerName={playerName}
@@ -148,7 +147,6 @@ function App() {
             <InfoPanel
               isCollapsed={!showInfoPanel}
               setIsCollapsed={setIsInfoPanelCollapsed}
-              chats={chats}
               currentChatId={currentChatId}
               openGameOverModal={gameOverModalOpener} />
           </>}

@@ -5,8 +5,9 @@ import "./Sidebar.scss";
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentChatId } from './store_slices/CurrentChatSlice.js'
 
-const Sidebar = ({ chats, isCollapsed, setIsCollapsed, isMobile }) => {
+const Sidebar = ({ isCollapsed, setIsCollapsed, isMobile }) => {
     const dispatch = useDispatch();
+    const chats = useSelector((state) => state.chats.value);
     const users = chats.map(chat => chat.user);
 
     const toggleSidebar = () => {

@@ -7,9 +7,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentChatId } from './store_slices/CurrentChatSlice.js'
 
 
-const MainContent = ({ playerName, chats, addMessage, isMobile, setIsInfoPanelCollapsed, openGameOverModal }) => {
+const MainContent = ({ playerName, addMessage, isMobile, setIsInfoPanelCollapsed, openGameOverModal }) => {
   const dispatch = useDispatch();
   const currentChatId = useSelector((state) => state.currentChatId.value);
+  const chats = useSelector((state) => state.chats.value);
   const [currentMessage, setCurrentMessage] = useState('');
   const [currentChat, setCurrentChat] = useState(chats[currentChatId]);
   const messages = currentChat.messages;

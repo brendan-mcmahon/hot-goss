@@ -1,7 +1,9 @@
 import CharacterProfile from './CharacterProfile';
 import closeIcon from './assets/close.svg';
+import { useSelector, useDispatch } from 'react-redux'
 
-const InfoPanel = ({ chats, currentChatId, isCollapsed, setIsCollapsed, openGameOverModal }) => {
+const InfoPanel = ({ currentChatId, isCollapsed, setIsCollapsed, openGameOverModal }) => {
+    const chats = useSelector((state) => state.chats.value);
     const currentChat = chats[currentChatId];
 
     return (
