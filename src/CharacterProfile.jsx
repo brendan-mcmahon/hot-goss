@@ -2,8 +2,9 @@ import React from 'react';
 import "./CharacterProfile.scss";
 import ProgressBar from './ProgressBar';
 import botImage from './assets/bot.svg';
+import EvidenceButton from './EvidenceButton';
 
-const CharacterProfile = ({ character }) => {
+const CharacterProfile = ({ character, chats, currentChatId, openGameOverModal }) => {
     if (!character) return null;
 
     return (
@@ -11,7 +12,8 @@ const CharacterProfile = ({ character }) => {
             <div>
                 <h1>{character.Name}</h1>
             </div>
-            <img src={botImage} alt={character.Name} />
+            <EvidenceButton chats={chats} currentChatId={currentChatId} openGameOverModal={openGameOverModal} />
+            <img className='profile-picture' src={botImage} alt={character.Name} />
             <div className="profile-details">
                 <h2>{character.Job}</h2>
                 {/* <h3>{character.Guilty ? "Guilty" : "Innocent"}</h3> */}

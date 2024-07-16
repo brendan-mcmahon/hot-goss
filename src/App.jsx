@@ -121,8 +121,6 @@ function App() {
         {chats.length > 0 &&
           <>
             <Header
-              chats={chats}
-              currentChatId={currentChatId}
               openGameOverModal={gameOverModalOpener}
               resetSignal={resetClock}
               handleClockReset={handleClockReset}
@@ -143,12 +141,14 @@ function App() {
               addMessage={addMessage}
               playerName={playerName}
               setIsInfoPanelCollapsed={setIsInfoPanelCollapsed}
+              openGameOverModal={gameOverModalOpener}
             />
             <InfoPanel
               isCollapsed={!showInfoPanel}
               setIsCollapsed={setIsInfoPanelCollapsed}
               chats={chats}
-              currentChatId={currentChatId} />
+              currentChatId={currentChatId}
+              openGameOverModal={gameOverModalOpener} />
           </>}
       </div>
     </>

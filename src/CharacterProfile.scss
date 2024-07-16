@@ -3,13 +3,13 @@
 #Character-Profile {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(auto, 180px) auto;
+    grid-template-rows: auto auto auto;
 
     h1 {
         font-size: 2rem;
     }
 
-    img {
+    .profile-picture {
         width: 100%;
         height: 100%;
     }

@@ -37,24 +37,28 @@
       font-size: 2rem;
       transform: translateY(3px);
     }
+  }
+  #evidence-button {
+    // transform: translateY(4px);
+    display: flex;
+    margin: 10px;
+    .button-content{
+      display: flex;
+      align-items: center;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
 
-    #evidence-button {
-      // transform: translateY(4px);
+    &:disabled {
+      background-color: $secondary-text-color;
+      cursor: default;
 
       &:hover {
-        transform: scale(1.05);
+        transform: none;
       }
-
-      &:disabled {
-        background-color: $secondary-text-color;
-        cursor: default;
-
-        &:hover {
-          transform: none;
-        }
-      }
-
     }
+
   }
 
   #InfoPanel {
@@ -221,9 +225,13 @@
       }
     }
 
-    .header {
-      #evidence-button {
-        transform: translateY(0);
+    #evidence-button {
+      right: 0px;
+      .button-content{
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+        padding-right: 10px;
       }
     }
 

@@ -2,8 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import Message from './Message';
 import "./Messages.scss";
 import botIcon from "./assets/bot.svg";
+import EvidenceButton from "./EvidenceButton"
 
-const MainContent = ({ playerName, chats, currentChatId, addMessage, isMobile, setIsInfoPanelCollapsed }) => {
+const MainContent = ({ playerName, chats, currentChatId, addMessage, isMobile, setIsInfoPanelCollapsed, openGameOverModal }) => {
   const [currentMessage, setCurrentMessage] = useState('');
   const [currentChat, setCurrentChat] = useState(chats[currentChatId]);
   const messages = currentChat.messages;
@@ -36,6 +37,7 @@ const MainContent = ({ playerName, chats, currentChatId, addMessage, isMobile, s
     <div className="main-content">
       <div className="profile-summary" onClick={() => setIsInfoPanelCollapsed(false)}>
         <h1>{currentChat.user.Name}</h1>
+        <EvidenceButton chats={chats} currentChatId={currentChatId} openGameOverModal={openGameOverModal}/>
         <img className="icon" src={botIcon} style={{}} alt="" />
       </div>
       <div id="Messages">

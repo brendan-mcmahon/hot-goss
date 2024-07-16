@@ -8,6 +8,7 @@
 * Create conversation summaries for the profile.
 * Let you send more than one message back-to-back before the bot replies so it's like real texting.
   * Implement a random delay before making the API call. Just before sending, check for other chats and append them.
+  * Add a typing indicator?
 * Add conversations between bots
   * Not sure when to trigger this. When you mention someone else's name maybe?
   * Would require a trust rating between all characters maybe?

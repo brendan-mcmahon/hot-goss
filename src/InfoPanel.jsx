@@ -1,7 +1,7 @@
 import CharacterProfile from './CharacterProfile';
 import closeIcon from './assets/close.svg';
 
-const InfoPanel = ({ chats, currentChatId, isCollapsed, setIsCollapsed }) => {
+const InfoPanel = ({ chats, currentChatId, isCollapsed, setIsCollapsed, openGameOverModal }) => {
     const currentChat = chats[currentChatId];
 
     return (
@@ -12,7 +12,7 @@ const InfoPanel = ({ chats, currentChatId, isCollapsed, setIsCollapsed }) => {
                 >
                 <img src={closeIcon} />
             </button>
-            <CharacterProfile character={currentChat.user} />
+            <CharacterProfile character={currentChat.user} chats={chats} currentChatId={currentChatId} openGameOverModal={openGameOverModal}/>
         </div>
     );
 };
