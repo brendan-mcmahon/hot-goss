@@ -3,10 +3,12 @@ import "./CharacterProfile.scss";
 import ProgressBar from './ProgressBar';
 import botImage from './assets/bot.svg';
 import EvidenceButton from './EvidenceButton';
+import { useSelector, useDispatch } from 'react-redux'
 
-const CharacterProfile = ({ character, chats, currentChatId, openGameOverModal }) => {
+const CharacterProfile = ({ character, openGameOverModal }) => {
     if (!character) return null;
-
+    const chats = useSelector(state => state.chats.value);
+    const currentChatId = useSelector(state => state.currentChatId.value);
     return (
         <div id="Character-Profile">
             <div>

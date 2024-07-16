@@ -43,7 +43,7 @@ const MainContent = ({ playerName, addMessage, isMobile, setIsInfoPanelCollapsed
     <div className="main-content">
       <div className="profile-summary" onClick={() => setIsInfoPanelCollapsed(false)}>
         <h1>{currentChat.user.Name}</h1>
-        <EvidenceButton chats={chats} currentChatId={currentChatId} openGameOverModal={openGameOverModal}/>
+        <EvidenceButton openGameOverModal={openGameOverModal}/>
         <img className="icon" src={botIcon} style={{}} alt="" />
       </div>
       <div id="Messages">

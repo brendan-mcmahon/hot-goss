@@ -11,7 +11,7 @@ import WelcomeModal from './WelcomeModal.jsx'
 import GameOverModal from './GameOverModal.jsx'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCurrentChatId } from './store_slices/CurrentChatSlice.js'
-import { setChats } from './store_slices/ChatsSlice.js'
+import { setChats, updateTrust } from './store_slices/ChatsSlice.js'
 
 function App() {
   const [playerName, setPlayerName] = useState('');
@@ -82,9 +82,7 @@ function App() {
 
         const newChats = [...chats];
         if (newChats[currentChatId].user.Trust !== 100) {
-          newChats[currentChatId].user.Trust += parseInt(delta, 10);
-          newChats[currentChatId].user.Trust = Math.max(0, Math.min(newChats[currentChatId].user.Trust, 100));
-          dispatch(setChats(newChats));
+          dispatch(updateTrust({ chatId: currentChatId, trustDelta: parseInt(delta, 10) }));
         }
 
         setPendingMessage(false);
