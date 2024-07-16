@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import ChatPreview from './ChatPreview';
 import closeIcon from './assets/close.svg';
 import "./Sidebar.scss";
+import { useSelector, useDispatch } from 'react-redux'
+import { setCurrentChatId } from './store_slices/CurrentChatSlice.js'
 
-const Sidebar = ({ chats, setCurrentChatId, currentChatId, isCollapsed, setIsCollapsed, isMobile }) => {
+const Sidebar = ({ chats, isCollapsed, setIsCollapsed, isMobile }) => {
+    const dispatch = useDispatch();
     const users = chats.map(chat => chat.user);
 
     const toggleSidebar = () => {
@@ -11,7 +14,7 @@ const Sidebar = ({ chats, setCurrentChatId, currentChatId, isCollapsed, setIsCol
     };
 
     const handleCharacterSelect = (id) => {
-        setCurrentChatId(id);
+        dispatch(setCurrentChatId(id));
         setIsCollapsed(true);
     };
 
@@ -23,7 +26,6 @@ const Sidebar = ({ chats, setCurrentChatId, currentChatId, isCollapsed, setIsCol
             <div className="chat-list">
                 {users.map(character => (
                     <ChatPreview
-                        currentChatId={currentChatId}
                         setCurrentChatId={handleCharacterSelect}
                         key={character.Id}
                         character={character}

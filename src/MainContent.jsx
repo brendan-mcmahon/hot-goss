@@ -3,8 +3,13 @@ import Message from './Message';
 import "./Messages.scss";
 import botIcon from "./assets/bot.svg";
 import EvidenceButton from "./EvidenceButton"
+import { useSelector, useDispatch } from 'react-redux'
+import { setCurrentChatId } from './store_slices/CurrentChatSlice.js'
 
-const MainContent = ({ playerName, chats, currentChatId, addMessage, isMobile, setIsInfoPanelCollapsed, openGameOverModal }) => {
+
+const MainContent = ({ playerName, chats, addMessage, isMobile, setIsInfoPanelCollapsed, openGameOverModal }) => {
+  const dispatch = useDispatch();
+  const currentChatId = useSelector((state) => state.currentChatId.value);
   const [currentMessage, setCurrentMessage] = useState('');
   const [currentChat, setCurrentChat] = useState(chats[currentChatId]);
   const messages = currentChat.messages;

@@ -9,11 +9,12 @@ import { useState, useEffect } from 'react'
 import { getTrustDelta, sendMessage } from './openAiApiService'
 import WelcomeModal from './WelcomeModal.jsx'
 import GameOverModal from './GameOverModal.jsx'
+import { useSelector, useDispatch } from 'react-redux'
+import { setCurrentChatId } from './store_slices/CurrentChatSlice.js'
 
 function App() {
   const [playerName, setPlayerName] = useState('');
   const [chats, setChats] = useState([]);
-  const [currentChatId, setCurrentChatId] = useState(0);
   const [pendingMessage, setPendingMessage] = useState(false)
   const [trustUpdated, setTrustUpdated] = useState(false)
   const [welcomeModalOpen, setWelcomeModalOpen] = useState(true)
@@ -23,6 +24,8 @@ function App() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
   const [isInfoPanelCollapsed, setIsInfoPanelCollapsed] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const dispatch = useDispatch();
+  const currentChatId = useSelector((state) => state.currentChatId.value);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -44,7 +47,7 @@ function App() {
     setPlayerName(window.localStorage.getItem('name'));
 
     setChats(initialChats);
-    setCurrentChatId(initialChats.findIndex(chat => chat.user.BestFriend));
+    dispatch(setCurrentChatId(initialChats.findIndex(chat => chat.user.BestFriend)));
     handleClockReset();
   }
 
@@ -131,7 +134,6 @@ function App() {
               chats={chats}
               isCollapsed={!showSidebar}
               setIsCollapsed={setIsSidebarCollapsed}
-              setCurrentChatId={setCurrentChatId}
               currentChatId={currentChatId}
               isMobile={isMobile}
             />
