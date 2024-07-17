@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import CharacterProfile from './CharacterProfile';
 import closeIcon from './assets/close.svg';
+import GossContext from './ContextProvider.jsx'
 
-const InfoPanel = ({ chats, currentChatId, isCollapsed, setIsCollapsed, openGameOverModal }) => {
+const InfoPanel = ({ currentChatId, isCollapsed, setIsCollapsed, openGameOverModal }) => {
+    const { chats } = useContext(GossContext);
     const currentChat = chats[currentChatId];
 
     return (

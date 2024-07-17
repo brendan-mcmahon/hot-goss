@@ -1,10 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import Message from './Message';
 import "./Messages.scss";
 import botIcon from "./assets/bot.svg";
 import EvidenceButton from "./EvidenceButton"
+import GossContext from './ContextProvider.jsx'
 
-const MainContent = ({ playerName, chats, currentChatId, addMessage, isMobile, setIsInfoPanelCollapsed, openGameOverModal }) => {
+const MainContent = ({ playerName, currentChatId, addMessage, isMobile, setIsInfoPanelCollapsed, openGameOverModal }) => {
+  const { chats } = useContext(GossContext);
   const [currentMessage, setCurrentMessage] = useState('');
   const [currentChat, setCurrentChat] = useState(chats[currentChatId]);
   const messages = currentChat.messages;

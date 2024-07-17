@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import ChatPreview from './ChatPreview';
 import closeIcon from './assets/close.svg';
 import "./Sidebar.scss";
+import GossContext from './ContextProvider.jsx'
 
-const Sidebar = ({ chats, setCurrentChatId, currentChatId, isCollapsed, setIsCollapsed, isMobile }) => {
+const Sidebar = ({  setCurrentChatId, currentChatId, isCollapsed, setIsCollapsed, isMobile }) => {
+    const { chats } = useContext(GossContext);
     const users = chats.map(chat => chat.user);
 
     const toggleSidebar = () => {

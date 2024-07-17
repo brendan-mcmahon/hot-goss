@@ -5,14 +5,15 @@ import Header from './Header'
 import './text-effects.scss'
 import InfoPanel from './InfoPanel'
 import initialize from './startup.js'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { getTrustDelta, sendMessage } from './openAiApiService'
 import WelcomeModal from './WelcomeModal.jsx'
 import GameOverModal from './GameOverModal.jsx'
+import GossContext from './ContextProvider.jsx'
 
 function App() {
   const [playerName, setPlayerName] = useState('');
-  const [chats, setChats] = useState([]);
+  const { chats, setChats } = useContext(GossContext);
   const [currentChatId, setCurrentChatId] = useState(0);
   const [pendingMessage, setPendingMessage] = useState(false)
   const [trustUpdated, setTrustUpdated] = useState(false)
@@ -128,7 +129,6 @@ function App() {
               isMobile={isMobile}
             />
             <Sidebar
-              chats={chats}
               isCollapsed={!showSidebar}
               setIsCollapsed={setIsSidebarCollapsed}
               setCurrentChatId={setCurrentChatId}
@@ -136,7 +136,6 @@ function App() {
               isMobile={isMobile}
             />
             <MainContent
-              chats={chats}
               currentChatId={currentChatId}
               addMessage={addMessage}
               playerName={playerName}
@@ -146,7 +145,6 @@ function App() {
             <InfoPanel
               isCollapsed={!showInfoPanel}
               setIsCollapsed={setIsInfoPanelCollapsed}
-              chats={chats}
               currentChatId={currentChatId}
               openGameOverModal={gameOverModalOpener} />
           </>}
