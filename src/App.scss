@@ -267,6 +267,9 @@
 
 
 }
+.icon, .profile-picture {
+  image-rendering: pixelated;
+}
 
 .icon-button {
   background-color: $accent-color-1;

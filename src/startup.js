@@ -55,9 +55,10 @@ const assignCodeNames = (characters) => {
 };
 
 const initializeChats = (characters) => {
-    return characters.map(character => ({
+    return characters.map((character, index) => ({
         user: character,
-        messages: []
+        messages: [],
+        profile: `Icons_${(index + 1).toString().padStart(2, '0')}.png`
     }));
 };
 

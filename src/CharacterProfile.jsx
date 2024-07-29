@@ -1,7 +1,7 @@
 import React from 'react';
 import "./CharacterProfile.scss";
 import ProgressBar from './ProgressBar';
-import botImage from './assets/bot.svg';
+import profilePics from './ProfilePics.jsx'
 import EvidenceButton from './EvidenceButton';
 
 const CharacterProfile = ({ character, chats, currentChatId, openGameOverModal }) => {
@@ -13,7 +13,7 @@ const CharacterProfile = ({ character, chats, currentChatId, openGameOverModal }
                 <h1>{character.Name}</h1>
             </div>
             <EvidenceButton chats={chats} currentChatId={currentChatId} openGameOverModal={openGameOverModal} />
-            <img className='profile-picture' src={botImage} alt={character.Name} />
+            <img className='profile-picture' src={profilePics[currentChatId]} alt={character.Name} />
             <div className="profile-details">
                 <h2>{character.Job}</h2>
                 {/* <h3>{character.Guilty ? "Guilty" : "Innocent"}</h3> */}

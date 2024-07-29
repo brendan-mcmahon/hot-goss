@@ -1,9 +1,9 @@
-import botIcon from "./assets/bot.svg";
 import userIcon from "./assets/user.svg";
+import profilePics from './ProfilePics.jsx'
 
-const Message = ({ playerName, message, iconColor }) => {
+const Message = ({ playerName, message, iconColor, currentChatId}) => {
 
-    const icon = message.sender === playerName ? userIcon : botIcon;
+    const icon = message.sender === playerName ? userIcon : profilePics[currentChatId];
     const senderClass = message.sender === playerName ? 'user' : 'bot';
     const style = { backgroundColor: message.sender === playerName ? 'green' : iconColor };
 
