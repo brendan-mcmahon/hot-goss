@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import Message from './Message';
 import "./Messages.scss";
-import botIcon from "./assets/bot.svg";
 import EvidenceButton from "./EvidenceButton"
 import GossContext from './ContextProvider.jsx'
-
+import profilePics from './ProfilePics.jsx'
 const MainContent = ({ playerName, currentChatId, addMessage, isMobile, setIsInfoPanelCollapsed, openGameOverModal }) => {
   const { chats } = useContext(GossContext);
   const [currentMessage, setCurrentMessage] = useState('');
@@ -40,11 +39,12 @@ const MainContent = ({ playerName, currentChatId, addMessage, isMobile, setIsInf
       <div className="profile-summary" onClick={() => setIsInfoPanelCollapsed(false)}>
         <h1>{currentChat.user.Name}</h1>
         <EvidenceButton chats={chats} currentChatId={currentChatId} openGameOverModal={openGameOverModal}/>
-        <img className="icon" src={botIcon} style={{}} alt="" />
+        <h1>HELP</h1>
+        <img className="icon" src={profilePics[currentChatId]} style={{}} alt="" />
       </div>
       <div id="Messages">
         {messages.map((message, index) => (
-          <Message key={index} message={message} playerName={playerName} iconColor={currentChat.user.Color} />
+          <Message key={index} message={message} playerName={playerName} iconColor={currentChat.user.Color} currentChatId={currentChatId}/>
         ))}
         <div ref={messagesEndRef} />
       </div>
